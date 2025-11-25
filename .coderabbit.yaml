@@ -1,0 +1,93 @@
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
+language: en
+early_access: true
+chat:
+  auto_reply: true
+reviews:
+  auto_review:
+    enabled: true
+    ignore_title_keywords:
+      - "WIP"
+    drafts: false
+    base_branches:
+      - main
+      - develop
+  high_level_summary: true
+  sequence_diagrams: true
+  poem: false
+  review_status: true
+  collapse_walkthrough: false
+  changed_files_summary: true
+  request_changes_workflow: false
+  path_filters:
+    - "!**/node_modules/**"
+    - "!**/android/**"
+    - "!**/ios/**"
+    - "!**/.expo/**"
+    - "!**/.expo-shared/**"
+    - "!**/dist/**"
+  path_instructions:
+    - path: "**/*.{ts,tsx,js,jsx}"
+      instructions: |
+        Mobile & Expo best practices:
+        - Proper use of Expo APIs and hooks (useRouter, useFonts, useAssets)
+        - Accessibility: touch targets min 44x44, screen reader support
+        - Safe area handling and platform-specific code (iOS vs Android)
+        - Memory leaks in useEffect and event listeners
+        
+        Performance:
+        - Use FlatList/SectionList for lists (never ScrollView with .map)
+        - StyleSheet.create instead of inline styles
+        - React.memo, useMemo, useCallback where appropriate
+        
+        TypeScript:
+        - Avoid 'any', use explicit types
+        - Prefer 'import type' for type imports
+        
+        Security:
+        - No exposed API keys or sensitive data
+        - Use expo-secure-store for sensitive storage
+        - Validate deep linking configurations
+
+        Internationalization:
+        - User-visible strings should be externalized to resource files (i18n)
+    - path: "app.json"
+      instructions: |
+        Review Expo configuration for:
+        - Proper app versioning (version and build numbers in sync)
+        - Required permissions are justified and minimal
+        - Splash screen and icon configurations are complete
+        - Deep linking schemes are properly configured
+        - EAS build configuration is production-ready
+        - No exposed secrets or API keys in configuration
+    - path: "eas.json"
+      instructions: |
+        Review EAS Build/Submit configuration for:
+        - Environment-specific configurations (development, preview, production)
+        - Proper credential management
+        - Build profiles are optimized for their purpose
+        - iOS bundle identifiers and Android package names are correct
+        - Distribution settings align with deployment strategy
+    - path: "metro.config.js"
+      instructions: |
+        Review Metro bundler configuration for:
+        - Asset extensions are properly registered
+        - Transformer configuration is optimal for project needs
+        - Source map generation is appropriate for environment
+        - No security issues with resolver configuration
+    - path: "**/*.test.{ts,tsx,js,jsx}"
+      instructions: |
+        Review test files for:
+        - Comprehensive coverage of React Native component behavior
+        - Proper use of @testing-library/react-native
+        - Mock implementations for Expo modules and native APIs
+        - Async behavior is properly tested
+        - Accessibility testing is included
+    - path: "assets/**/*"
+      instructions: |
+        Review asset files for:
+        - Image optimization (size and format appropriate for mobile)
+        - Proper @2x and @3x variants for different screen densities
+        - SVG assets are optimized
+        - Font files are licensed and optimized
+
