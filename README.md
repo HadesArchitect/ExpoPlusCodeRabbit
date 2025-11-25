@@ -1,36 +1,38 @@
-# StickerSmash Example
+# Expo + CodeRabbit Demo
 
-<p>
-  <!-- iOS -->
-  <img alt="Supports Expo iOS" longdesc="Supports Expo iOS" src="https://img.shields.io/badge/iOS-4630EB.svg?style=flat-square&logo=APPLE&labelColor=999999&logoColor=fff" />
-  <!-- Android -->
-  <img alt="Supports Expo Android" longdesc="Supports Expo Android" src="https://img.shields.io/badge/Android-4630EB.svg?style=flat-square&logo=ANDROID&labelColor=A4C639&logoColor=fff" />
-  <!-- Web -->
-  <img alt="Supports Expo Web" longdesc="Supports Expo Web" src="https://img.shields.io/badge/web-4630EB.svg?style=flat-square&logo=GOOGLE-CHROME&labelColor=4285F4&logoColor=fff" />
-</p>
-
-Example code for "Get started tutorial" in Expo documentation.
-
-## Launch your own
-
-[![Launch with Expo](https://github.com/expo/examples/blob/master/.gh-assets/launch.svg?raw=true)](https://launch.expo.dev/?github=https://github.com/expo/examples/tree/master/stickersmash)
+<strong>Example application demonstrating how to use Expo with CodeRabbit for automated pull request reviews.</strong>
 
 ## 🚀 How to use
 
-- Install packages with `npm install` or `yarn install`.
-- Run `npx expo start` to start the bundler.
+- Install packages with `npm install`.
+- Run `npx expo start --web` to start the bundler in web mode.
+- Open the app in your browser at [http://localhost:8081](http://localhost:8081).
+
+Optionally:
 - Open the project in Expo Go app:
   - iOS: [Client iOS](https://itunes.apple.com/app/apple-store/id982107779)
   - Android: [Client Android](https://play.google.com/store/apps/details?id=host.exp.exponent&referrer=blankexample)
-  - Web: Any web browser
+  
 
-## Deploy
+## 🤖 CodeRabbit Integration
 
-Deploy on all platforms with Expo Application Services (EAS).
+This project demonstrates integration with [CodeRabbit](https://coderabbit.ai/), an AI-powered code review platform that automatically reviews pull requests.
 
-- Deploy the website: `npx eas-cli deploy` — [Learn more](https://docs.expo.dev/eas/hosting/get-started/)
-- Deploy on iOS and Android using: `npx eas-cli build` — [Learn more](https://expo.dev/eas)
+### Features
+
+- **Automated Code Reviews**: CodeRabbit analyzes your pull requests and provides intelligent feedback
+- **Expo-Specific Insights**: Optimized for React Native and Expo projects
+- **Continuous Learning**: Improves suggestions based on your codebase patterns
+
+### How It Works
+
+1. Create a pull request in this GitHub repository
+2. CodeRabbit automatically analyzes the changes
+3. Receive detailed feedback and suggestions as PR comments
+4. Iterate on the feedback and improve your code
+
+For more information, visit the [CodeRabbit documentation](https://docs.coderabbit.ai/).
 
 ## 📝 Notes
 
-Learn more about building **StickerSmash** app from scratch in [Get started with Expo tutorial](https://docs.expo.dev/tutorial/introduction/).
+This app is based on the **StickerSmash** example from the [Expo tutorial](https://docs.expo.dev/tutorial/introduction/).
