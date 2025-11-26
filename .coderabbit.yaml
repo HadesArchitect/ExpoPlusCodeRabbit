@@ -43,7 +43,7 @@ reviews:
   # Include summary of all changed files
   changed_files_summary: true
   
-  # Don't automatically request changes on the PR (just leave comments)
+  # Request changes on the PR itself if there are significant issues
   request_changes_workflow: true
 
   # Pre-merge checks to enforce before merging PRs
