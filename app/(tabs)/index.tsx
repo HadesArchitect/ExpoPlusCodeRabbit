@@ -28,6 +28,8 @@ export default function Index() {
   const [permissionResponse, requestPermission] = MediaLibrary.usePermissions();
 
   const imageRef = useRef<View>(null);
+  // Store cleared stickers for undo button (TBD)
+  const clearedStickersHistory = useRef<ImageSourcePropType[]>([]);
 
   useEffect(() => {
     if (!permissionResponse?.granted) {
@@ -60,6 +62,14 @@ export default function Index() {
 
   const onModalClose = () => {
     setIsModalVisible(false);
+  };
+
+  const onClearSticker = () => {
+    // Store the cleared sticker for planned undo feature
+    if (pickedEmoji) {
+      clearedStickersHistory.current.push(pickedEmoji);
+    }
+    setPickedEmoji(undefined);
   };
 
   const onSaveImageAsync = async () => {
@@ -112,6 +122,12 @@ export default function Index() {
         <View style={styles.optionsContainer}>
           <View style={styles.optionsRow}>
             <IconButton icon="refresh" label="Reset" onPress={onReset} />
+            <IconButton
+              icon="delete-outline"
+              label="Clear"
+              onPress={onClearSticker}
+              disabled={!pickedEmoji}
+            />
             <CircleButton onPress={onAddSticker} />
             <IconButton
               icon="save-alt"
@@ -160,5 +176,6 @@ const styles = StyleSheet.create({
   optionsRow: {
     alignItems: "center",
     flexDirection: "row",
+    gap: 20,
   },
 });
