@@ -55,7 +55,7 @@ The same feature as PR #2, but includes a subtle memory leak bug:
 - Array grows unbounded without cleanup mechanism
 - Appears intentional (prepared for "future undo feature")
 
-**What CodeRabbit Cought**: Memory leak from unbounded array growth, missing cleanup strategy, potential memory exhaustion.
+**What CodeRabbit Caught**: Memory leak from unbounded array growth, missing cleanup strategy, potential memory exhaustion.
 
 ### [PR #5: Blocking Review Workflow](https://github.com/HadesArchitect/ExpoPlusCodeRabbit/pull/5)
 **Status**: Blocked | **Type**: Blocked PR Demonstration
