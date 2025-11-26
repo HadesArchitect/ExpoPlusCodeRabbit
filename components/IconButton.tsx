@@ -5,13 +5,20 @@ type Props = {
   icon: keyof typeof MaterialIcons.glyphMap;
   label: string;
   onPress: () => void;
+  disabled?: boolean;
 };
 
-export default function IconButton({ icon, label, onPress }: Props) {
+export default function IconButton({ icon, label, onPress, disabled }: Props) {
   return (
-    <Pressable style={styles.iconButton} onPress={onPress}>
-      <MaterialIcons name={icon} size={24} color="#fff" />
-      <Text style={styles.iconButtonLabel}>{label}</Text>
+    <Pressable 
+      style={styles.iconButton} 
+      onPress={disabled ? undefined : onPress}
+      disabled={disabled}
+    >
+      <MaterialIcons name={icon} size={24} color={disabled ? "#666" : "#fff"} />
+      <Text style={[styles.iconButtonLabel, disabled && styles.disabledLabel]}>
+        {label}
+      </Text>
     </Pressable>
   );
 }
@@ -24,5 +31,8 @@ const styles = StyleSheet.create({
   iconButtonLabel: {
     color: "#fff",
     marginTop: 12,
+  },
+  disabledLabel: {
+    color: "#666",
   },
 });

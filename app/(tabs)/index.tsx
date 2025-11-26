@@ -62,6 +62,10 @@ export default function Index() {
     setIsModalVisible(false);
   };
 
+  const onClearSticker = () => {
+    setPickedEmoji(undefined);
+  };
+
   const onSaveImageAsync = async () => {
     if (Platform.OS !== "web") {
       try {
@@ -112,6 +116,12 @@ export default function Index() {
         <View style={styles.optionsContainer}>
           <View style={styles.optionsRow}>
             <IconButton icon="refresh" label="Reset" onPress={onReset} />
+            <IconButton
+              icon="delete-outline"
+              label="Clear"
+              onPress={onClearSticker}
+              disabled={!pickedEmoji}
+            />
             <CircleButton onPress={onAddSticker} />
             <IconButton
               icon="save-alt"
@@ -160,5 +170,6 @@ const styles = StyleSheet.create({
   optionsRow: {
     alignItems: "center",
     flexDirection: "row",
+    gap: 20,
   },
 });
