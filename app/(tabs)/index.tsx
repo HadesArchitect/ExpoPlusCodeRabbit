@@ -28,6 +28,8 @@ export default function Index() {
   const [permissionResponse, requestPermission] = MediaLibrary.usePermissions();
 
   const imageRef = useRef<View>(null);
+  // Store cleared stickers for undo button (TBD)
+  const clearedStickersHistory = useRef<ImageSourcePropType[]>([]);
 
   useEffect(() => {
     if (!permissionResponse?.granted) {
@@ -63,6 +65,10 @@ export default function Index() {
   };
 
   const onClearSticker = () => {
+    // Store the cleared sticker for planned undo feature
+    if (pickedEmoji) {
+      clearedStickersHistory.current.push(pickedEmoji);
+    }
     setPickedEmoji(undefined);
   };
 
