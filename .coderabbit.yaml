@@ -45,6 +45,15 @@ reviews:
   
   # Don't automatically request changes on the PR (just leave comments)
   request_changes_workflow: false
+
+  # Pre-merge checks to enforce before merging PRs
+  pre_merge_checks:
+    description:
+      # Validate that PR has a proper description
+      mode: warning  # Options: off, warning, error
+    docstrings:
+      # Disable docstring coverage checks (let's assume we don't need them)
+      mode: off
   
   # Exclude these paths from reviews (build artifacts and dependencies)
   path_filters:
