@@ -16,8 +16,8 @@ chat:
   # CodeRabbit will automatically respond to @coderabbitai mentions in PR comments
   auto_reply: true
   integrations:
-  linear:
-    usage: enabled
+    linear:
+      usage: enabled
 
 reviews:
   auto_review:
