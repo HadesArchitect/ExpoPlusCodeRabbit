@@ -7,9 +7,17 @@ language: en
 # Enable experimental features (currently not using any specific early_access features)
 early_access: true
 
+knowledge_base:
+  linear:
+    usage: enabled
+    team_keys: ["EXP"]
+
 chat:
   # CodeRabbit will automatically respond to @coderabbitai mentions in PR comments
   auto_reply: true
+  integrations:
+    linear:
+      usage: enabled
 
 reviews:
   auto_review:
@@ -24,6 +32,7 @@ reviews:
     base_branches:
       - main
       - develop
+      - linear
   
   # Include a high-level summary at the start of each review
   high_level_summary: true
