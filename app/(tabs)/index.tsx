@@ -1,6 +1,7 @@
 import domtoimage from "dom-to-image";
 import * as ImagePicker from "expo-image-picker";
 import * as MediaLibrary from "expo-media-library";
+import * as Sharing from "expo-sharing";
 import { useEffect, useRef, useState } from "react";
 import { ImageSourcePropType, Platform, StyleSheet, View } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
@@ -95,6 +96,18 @@ export default function Index() {
     }
   };
 
+  const onShareAsync = async () => {
+    const localUri = await captureRef(imageRef, {
+      height: 440,
+      quality: 1,
+    });
+    await Sharing.shareAsync(localUri, {
+      mimeType: "image/png",
+      dialogTitle: "Share your sticker creation",
+    });
+    alert("Shared!");
+  };
+
   return (
     <GestureHandlerRootView style={styles.container}>
       <View style={styles.imageContainer}>
@@ -117,6 +130,11 @@ export default function Index() {
               icon="save-alt"
               label="Save"
               onPress={onSaveImageAsync}
+            />
+            <IconButton
+              icon="share"
+              label="Share"
+              onPress={onShareAsync}
             />
           </View>
         </View>
