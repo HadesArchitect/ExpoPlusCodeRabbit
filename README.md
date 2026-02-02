@@ -1,6 +1,6 @@
 # Expo + CodeRabbit Demo
 
-<strong>Example application demonstrating how to use Expo with CodeRabbit for automated pull request reviews.</strong>
+Example application demonstrating how to use Expo with CodeRabbit for automated pull request reviews.
 
 ## 🚀 How to use
 
@@ -9,10 +9,10 @@
 - Open the app in your browser at [http://localhost:8081](http://localhost:8081).
 
 Optionally:
+
 - Open the project in Expo Go app:
   - iOS: [Client iOS](https://itunes.apple.com/app/apple-store/id982107779)
   - Android: [Client Android](https://play.google.com/store/apps/details?id=host.exp.exponent&referrer=blankexample)
-  
 
 ## 🤖 CodeRabbit Integration
 
@@ -38,9 +38,11 @@ For more information, visit the [CodeRabbit documentation](https://docs.coderabb
 This repository includes several demonstration pull requests showcasing different CodeRabbit review scenarios:
 
 ### [PR #2: Clean Implementation](https://github.com/HadesArchitect/ExpoPlusCodeRabbit/pull/2)
+
 **Status**: Open | **Type**: Good PR with Minor Issues
 
 A well-implemented "Clear Sticker" button feature that demonstrates CodeRabbit's ability to:
+
 - Provide helpful nitpicks for code improvements
 - Identify accessibility concerns (e.g., touch target sizes for mobile)
 - Give constructive feedback on clean code
@@ -48,9 +50,11 @@ A well-implemented "Clear Sticker" button feature that demonstrates CodeRabbit's
 **What CodeRabbit Catches**: Style improvements, accessibility warnings, and best practices based on project guidelines.
 
 ### [PR #4: Memory Leak Bug](https://github.com/HadesArchitect/ExpoPlusCodeRabbit/pull/4)
+
 **Status**: Open | **Type**: Intentional Bug Demonstration
 
 The same feature as PR #2, but includes a subtle memory leak bug:
+
 - Adds `clearedStickersHistory` ref that stores cleared stickers
 - Array grows unbounded without cleanup mechanism
 - Appears intentional (prepared for "future undo feature")
@@ -58,9 +62,11 @@ The same feature as PR #2, but includes a subtle memory leak bug:
 **What CodeRabbit Caught**: Memory leak from unbounded array growth, missing cleanup strategy, potential memory exhaustion.
 
 ### [PR #5: Blocking Review Workflow](https://github.com/HadesArchitect/ExpoPlusCodeRabbit/pull/5)
+
 **Status**: Blocked | **Type**: Blocked PR Demonstration
 
 Same changes as PR #4, but with `request_changes_workflow: true` enabled:
+
 - CodeRabbit will request changes and block merging
 - Demonstrates enforcement of code quality standards
 - PR cannot be merged until issues are resolved
