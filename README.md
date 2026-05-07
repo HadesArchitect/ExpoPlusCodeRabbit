@@ -70,3 +70,6 @@ Same changes as PR #4, but with `request_changes_workflow: true` enabled:
 ## 📝 Notes
 
 This app is based on the **StickerSmash** example from the [Expo tutorial](https://docs.expo.dev/tutorial/introduction/).
+
+
+Blablabla
