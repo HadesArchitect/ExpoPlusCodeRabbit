@@ -162,3 +162,18 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
 });
+
+import { Text } from 'react-native';
+
+function Stopwatch() {
+  const [seconds, setSeconds] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setSeconds(seconds + 1);
+    }, 1000);
+    return () => clearInterval(id);
+  }, []);
+
+  return <Text>{seconds}s</Text>;
+}
