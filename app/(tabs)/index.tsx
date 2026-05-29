@@ -162,3 +162,22 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
 });
+
+import { Text } from 'react-native';
+
+type User = { name: string };
+declare function fetchUser(id: string): Promise<User>;
+
+function Profile({ userId }: { userId: string | null }) {
+  if (!userId) {
+    return <Text>No user selected</Text>;
+  }
+
+  const [user, setUser] = useState<User | null>(null);
+
+  useEffect(() => {
+    fetchUser(userId).then(setUser);
+  }, [userId]);
+
+  return <Text>{user?.name}</Text>;
+}
