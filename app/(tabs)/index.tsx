@@ -162,3 +162,29 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
 });
+
+import { useMemo } from 'react';
+import { FlatList, Text } from 'react-native';
+
+type Product = { id: string; name: string; price: number };
+
+function ProductList({
+  products,
+  maxPrice,
+}: {
+  products: Product[];
+  maxPrice: number;
+}) {
+  const affordable = useMemo(
+    () => products.filter((p) => p.price <= maxPrice),
+    [products]
+  );
+
+  return (
+    <FlatList
+      data={affordable}
+      keyExtractor={(p) => p.id}
+      renderItem={({ item }) => <Text>{item.name}</Text>}
+    />
+  );
+}
