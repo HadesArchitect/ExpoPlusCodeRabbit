@@ -162,3 +162,23 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
 });
+
+import { Text, Pressable } from 'react-native';
+
+function TodoList() {
+  const [todos, setTodos] = useState<string[]>([]);
+
+  const add = () => {
+    todos.push(`Item ${todos.length + 1}`);
+    setTodos(todos);
+  };
+
+  return (
+    <View>
+      {todos.map((t) => <Text key={t}>{t}</Text>)}
+      <Pressable onPress={add}>
+        <Text>Add</Text>
+      </Pressable>
+    </View>
+  );
+}
