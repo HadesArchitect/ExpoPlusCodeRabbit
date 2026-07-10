@@ -6,6 +6,8 @@ import Animated, {
   withSpring,
 } from "react-native-reanimated";
 
+import { clampScale, MAX_ZOOM_FACTOR, MIN_ZOOM_FACTOR } from "@/utils/zoom";
+
 type Props = {
   imageSize: number;
   stickerSource: ImageSourcePropType;
@@ -16,13 +18,20 @@ export default function EmojiSticker({ imageSize, stickerSource }: Props) {
   const translateX = useSharedValue(0);
   const translateY = useSharedValue(0);
 
+  const minScale = imageSize * MIN_ZOOM_FACTOR;
+  const maxScale = imageSize * MAX_ZOOM_FACTOR;
+
   const doubleTap = Gesture.Tap()
     .numberOfTaps(2)
     .onStart(() => {
       if (scaleImage.value !== imageSize * 2) {
-        scaleImage.value = scaleImage.value * 2;
+        scaleImage.value = clampScale(scaleImage.value * 2, minScale, maxScale);
       } else {
-        scaleImage.value = Math.round(scaleImage.value / 2);
+        scaleImage.value = clampScale(
+          Math.round(scaleImage.value / 2),
+          minScale,
+          maxScale
+        );
       }
     });
 
